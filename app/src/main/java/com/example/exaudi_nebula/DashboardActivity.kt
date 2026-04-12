@@ -1,4 +1,4 @@
-package com.example.exaudi_nebula  // ← PENTING! Ada .Dashboard
+package com.example.exaudi_nebula
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,7 +6,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.exaudi_nebula.FormLogin.LoginMainActivity
 import com.example.exaudi_nebula.FormLogin.LoginResultActivity
-import com.example.exaudi_nebula.MainActivity
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.snackbar.Snackbar
 

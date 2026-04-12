@@ -16,7 +16,6 @@
         app:cardElevation="2dp"
         app:cardCornerRadius="12dp"
         android:clickable="true">
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -35,7 +34,6 @@
         style="?attr/materialCardViewFilledStyle"
         app:cardCornerRadius="12dp"
         android:clickable="true">
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -54,7 +52,6 @@
         style="?attr/materialCardViewFilledStyle"
         app:cardCornerRadius="12dp"
         android:clickable="true">
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -74,7 +71,6 @@
         app:strokeWidth="2dp"
         app:cardCornerRadius="12dp"
         android:clickable="true">
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
