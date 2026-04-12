@@ -23,7 +23,7 @@ class DashboardActivity : AppCompatActivity() {
         // Tombol 1: ke MainActivity (Rumus Bangun Ruang)
         cardRumus.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
-            intent.putExtra("JUDUL", "Rumus Bangun Ruang")
+            intent.putExtra("JUDUL", "Rumus Bangun ruang")
             intent.putExtra("DESKRIPSI", "Hitung volume dan luas permukaan")
             startActivity(intent)
         }
