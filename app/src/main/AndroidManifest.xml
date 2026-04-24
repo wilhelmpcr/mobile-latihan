@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- TAMBAHAN IZIN INTERNET UNTUK WEBVIEW -->
+    <!-- Menambahkan Sebuah permission untuk mengakses internet -->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Exaudinebula">
 
-        <!-- TAMBAHAN: SPLASHSCREEN SEBAGAI LAUNCHER -->
+        <!-- SPLASHSCREEN SEBAGAI LAUNCHER -->
         <activity
             android:name=".SplashScreenActivity"
             android:exported="true">
@@ -25,7 +25,7 @@
             </intent-filter>
         </activity>
 
-        <!-- DashboardActivity (tidak berubah) -->
+        <!-- DashboardActivity  -->
         <activity
             android:name=".DashboardActivity"
             android:exported="false" />
@@ -35,7 +35,7 @@
             android:name=".FormLogin.LoginResultActivity"
             android:exported="false" />
 
-        <!-- LoginMainActivity (sekarang tidak launcher) -->
+        <!-- LoginMainActivity  -->
         <activity
             android:name=".FormLogin.LoginMainActivity"
             android:exported="false" />
@@ -45,7 +45,7 @@
             android:name=".MainActivity"
             android:exported="false" />
 
-        <!-- TAMBAHAN: WebViewActivity -->
+        <!-- WebViewActivity -->
         <activity
             android:name=".WebViewActivity"
             android:exported="false" />

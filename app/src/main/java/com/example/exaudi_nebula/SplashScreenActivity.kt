@@ -17,10 +17,8 @@ class SplashScreenActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash_screen)
 
         sharedPreferences = getSharedPreferences("UserSession", MODE_PRIVATE)
-
         Handler(Looper.getMainLooper()).postDelayed({
             val isLogin = sharedPreferences.getBoolean("isLogin", false)
-
             val intent = if (isLogin) {
                 Intent(this, DashboardActivity::class.java)
             } else {
