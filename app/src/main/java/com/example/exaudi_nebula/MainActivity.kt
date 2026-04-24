@@ -6,42 +6,45 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-            super.onCreate(savedInstanceState)
+        super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Inisialisasi View Segitiga
+        val toolbar = findViewById<Toolbar>(R.id.toolbarMain)
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = "Rumus Bangun Ruang"
+
         val etAlas = findViewById<EditText>(R.id.etAlas)
         val etTinggi = findViewById<EditText>(R.id.etTinggi)
         val btnSegitiga = findViewById<Button>(R.id.btnHitungSegitiga)
         val tvHasilSegitiga = findViewById<TextView>(R.id.tvHasilSegitiga)
 
-        // Inisialisasi View Kubus
         val etSisi = findViewById<EditText>(R.id.etSisi)
         val btnKubus = findViewById<Button>(R.id.btnHitungKubus)
         val tvHasilKubus = findViewById<TextView>(R.id.tvHasilKubus)
 
-        // Aksi Hitung Segitiga
         btnSegitiga.setOnClickListener {
             val alas = etAlas.text.toString().toDoubleOrNull() ?: 0.0
             val tinggi = etTinggi.text.toString().toDoubleOrNull() ?: 0.0
             val hasil = 0.5 * alas * tinggi
             tvHasilSegitiga.text = "Hasil: $hasil"
-
-            // Menggunakan Logcat untuk debugging
-            Log.d("EXAUDI_LOG", "Hitung Segitiga - Alas: $alas, Tinggi: $tinggi, Hasil: $hasil")
+            Log.d("EXAUDI_LOG", "Segitiga - Alas: $alas, Tinggi: $tinggi, Hasil: $hasil")
         }
 
-        // Aksi Hitung Kubus
         btnKubus.setOnClickListener {
             val sisi = etSisi.text.toString().toDoubleOrNull() ?: 0.0
             val hasil = sisi * sisi * sisi
             tvHasilKubus.text = "Hasil: $hasil"
-
-            // Menggunakan Logcat untuk debugging
-            Log.i("EXAUDI_LOG", "Hitung Kubus - Sisi: $sisi, Hasil: $hasil")
+            Log.i("EXAUDI_LOG", "Kubus - Sisi: $sisi, Hasil: $hasil")
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

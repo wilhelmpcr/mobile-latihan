@@ -1,9 +1,11 @@
 package com.example.exaudi_nebula
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import com.example.exaudi_nebula.FormLogin.LoginMainActivity
 import com.example.exaudi_nebula.FormLogin.LoginResultActivity
 import com.google.android.material.card.MaterialCardView
@@ -11,56 +13,61 @@ import com.google.android.material.snackbar.Snackbar
 
 class DashboardActivity : AppCompatActivity() {
 
+    private lateinit var sharedPreferences: SharedPreferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
+
+        val toolbar = findViewById<Toolbar>(R.id.toolbarDashboard)
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = "Dashboard Bina Desa"
+
+        sharedPreferences = getSharedPreferences("UserSession", MODE_PRIVATE)
 
         val cardRumus = findViewById<MaterialCardView>(R.id.cardRumus)
         val cardCustom1 = findViewById<MaterialCardView>(R.id.cardCustom1)
         val cardCustom2 = findViewById<MaterialCardView>(R.id.cardCustom2)
         val cardLogout = findViewById<MaterialCardView>(R.id.cardLogout)
+        val cardWebView = findViewById<MaterialCardView>(R.id.cardWebView)
 
-        // Tombol 1: ke MainActivity (Rumus Bangun Ruang)
         cardRumus.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            intent.putExtra("JUDUL", "Rumus Bangun ruang")
-            intent.putExtra("DESKRIPSI", "Hitung volume dan luas permukaan")
-            startActivity(intent)
+            startActivity(Intent(this, MainActivity::class.java))
         }
 
-        // Tombol 2: ke LoginMainActivity (Custom 1)
         cardCustom1.setOnClickListener {
-            val intent = Intent(this, LoginMainActivity::class.java)
-            intent.putExtra("JUDUL", "Custom Menu 1")
-            intent.putExtra("DESKRIPSI", "Halaman Login Form")
-            startActivity(intent)
+            startActivity(Intent(this, LoginMainActivity::class.java))
         }
 
-        // Tombol 3: ke LoginResultActivity (Custom 2)
         cardCustom2.setOnClickListener {
-            val intent = Intent(this, LoginResultActivity::class.java)
-            intent.putExtra("JUDUL", "Custom Menu 2")
-            intent.putExtra("DESKRIPSI", "Halaman Hasil Login")
-            startActivity(intent)
+            startActivity(Intent(this, LoginResultActivity::class.java))
         }
 
-        // Tombol 4: Logout ke LoginMainActivity
+        cardWebView.setOnClickListener {
+            startActivity(Intent(this, WebViewActivity::class.java))
+        }
+
         cardLogout.setOnClickListener {
             AlertDialog.Builder(this)
                 .setTitle("Konfirmasi Logout")
                 .setMessage("Apakah Anda yakin ingin logout?")
                 .setPositiveButton("Ya") { _, _ ->
+                    sharedPreferences.edit().clear().apply()
                     val intent = Intent(this, LoginMainActivity::class.java)
                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     startActivity(intent)
                     finish()
                 }
                 .setNegativeButton("Tidak") { _, _ ->
-                    Snackbar.make(findViewById(android.R.id.content),
-                        "Logout dibatalkan",
-                        Snackbar.LENGTH_SHORT).show()
+                    Snackbar.make(findViewById(android.R.id.content), "Logout dibatalkan", Snackbar.LENGTH_SHORT).show()
                 }
                 .show()
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

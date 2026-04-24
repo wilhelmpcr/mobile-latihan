@@ -4,81 +4,124 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:orientation="vertical">
 
-    <!-- TOMBOL 1: Elevated -->
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardRumus"
+    <!-- TOOLBAR (dipisah dari card) -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarDashboard"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
-        app:cardElevation="2dp"
-        app:cardCornerRadius="12dp"
-        android:clickable="true">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="📐 Rumus Bangun Ruang"
-            android:padding="20dp"
-            android:textSize="16sp"
-            android:textStyle="bold"/>
-    </com.google.android.material.card.MaterialCardView>
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/toolbar_background"
+        android:titleTextColor="@color/toolbar_title"
+        android:title="Dashboard Bina Desa" />
 
-    <!-- TOMBOL 2: Filled -->
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardCustom1"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
-        style="?attr/materialCardViewFilledStyle"
-        app:cardCornerRadius="12dp"
-        android:clickable="true">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="🖼️ Custom Menu 1"
-            android:padding="20dp"
-            android:textSize="16sp"
-            android:textStyle="bold"/>
-    </com.google.android.material.card.MaterialCardView>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
 
-    <!-- TOMBOL 3: Filled -->
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardCustom2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
-        style="?attr/materialCardViewFilledStyle"
-        app:cardCornerRadius="12dp"
-        android:clickable="true">
-        <TextView
-            android:layout_width="wrap_content"
+        <!-- TOMBOL 1: Elevated -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardRumus"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="🎨 Custom Menu 2"
-            android:padding="20dp"
-            android:textSize="16sp"
-            android:textStyle="bold"/>
-    </com.google.android.material.card.MaterialCardView>
+            android:layout_marginBottom="12dp"
+            app:cardElevation="2dp"
+            app:cardCornerRadius="12dp"
+            android:clickable="true">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📐 Rumus Bangun Ruang"
+                android:padding="20dp"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+        </com.google.android.material.card.MaterialCardView>
 
-    <!-- TOMBOL 4: Outlined -->
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardLogout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="?attr/materialCardViewOutlinedStyle"
-        app:strokeColor="#B3261E"
-        app:strokeWidth="2dp"
-        app:cardCornerRadius="12dp"
-        android:clickable="true">
-        <TextView
-            android:layout_width="wrap_content"
+        <!-- TOMBOL 2: Filled -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardCustom1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="🚪 Logout"
-            android:padding="20dp"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="#B3261E"/>
-    </com.google.android.material.card.MaterialCardView>
+            android:layout_marginBottom="12dp"
+            style="?attr/materialCardViewFilledStyle"
+            app:cardCornerRadius="12dp"
+            android:clickable="true">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🖼️ Custom Menu 1"
+                android:padding="20dp"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+        </com.google.android.material.card.MaterialCardView>
 
+        <!-- TOMBOL 3: Filled -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardCustom2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            style="?attr/materialCardViewFilledStyle"
+            app:cardCornerRadius="12dp"
+            android:clickable="true">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🎨 Custom Menu 2"
+                android:padding="20dp"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- TAMBAHAN: CARD WEB VIEW BINA DESA -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardWebView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            android:clickable="true">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp">
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_launcher_foreground" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="🌐 Web View Bina Desa"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- TOMBOL 4: Outlined (Logout) -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardLogout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="?attr/materialCardViewOutlinedStyle"
+            app:strokeColor="#B3261E"
+            app:strokeWidth="2dp"
+            app:cardCornerRadius="12dp"
+            android:clickable="true">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🚪 Logout"
+                android:padding="20dp"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#B3261E"/>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
 </LinearLayout>
