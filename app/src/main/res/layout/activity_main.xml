@@ -1,121 +1,194 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:background="@color/bg_light">
 
-    <!-- TOOLBAR -->
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarMain"
+    <!-- HEADER BACKGROUND -->
+    <View
+        android:id="@+id/headerView"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/toolbar_background"
-        android:titleTextColor="@color/toolbar_title"
-        android:title="Rumus Bangun Ruang" />
+        android:layout_height="220dp"
+        android:background="@drawable/header_background"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <TextView
+        android:id="@+id/tvWelcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Halo, Selamat Datang!"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="24dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvDesaTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dashboard Bina Desa"
+        android:textColor="@color/white"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:layout_marginStart="24dp"
+        app:layout_constraintTop_toBottomOf="@id/tvWelcome"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- GRID MENU CONTAINER -->
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="16dp">
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/tvDesaTitle"
+        app:layout_constraintBottom_toBottomOf="parent">
 
-        <TextView
-            android:id="@+id/tvTitle"
-            android:layout_width="wrap_content"
+        <GridLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Kalkulator Exaudi Banjarnahor"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:columnCount="2"
+            android:rowCount="3"
+            android:padding="16dp"
+            android:alignmentMode="alignMargins"
+            android:columnOrderPreserved="false">
 
-        <TextView
-            android:id="@+id/labelSegitiga"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="1. Luas Segitiga (Datar)"
-            android:layout_marginTop="20dp"
-            app:layout_constraintTop_toBottomOf="@id/tvTitle"
-            app:layout_constraintStart_toStartOf="parent" />
+            <!-- MENU 1: KALKULATOR -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardRumus"
+                android:layout_width="0dp"
+                android:layout_height="160dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                android:clickable="true"
+                android:focusable="true">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="16dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="📐"
+                        android:textSize="40sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Kalkulator\nBangun Ruang"
+                        android:textAlignment="center"
+                        android:textStyle="bold"
+                        android:layout_marginTop="8dp"
+                        android:textColor="@color/text_dark"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-        <EditText
-            android:id="@+id/etAlas"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="Masukkan Alas"
-            android:inputType="numberDecimal"
-            app:layout_constraintTop_toBottomOf="@id/labelSegitiga"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            <!-- MENU 2: WEB VIEW -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardWebView"
+                android:layout_width="0dp"
+                android:layout_height="160dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                android:clickable="true"
+                android:focusable="true">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="16dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🌐"
+                        android:textSize="40sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Website\nBina Desa"
+                        android:textAlignment="center"
+                        android:textStyle="bold"
+                        android:layout_marginTop="8dp"
+                        android:textColor="@color/text_dark"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-        <EditText
-            android:id="@+id/etTinggi"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="Masukkan Tinggi"
-            android:inputType="numberDecimal"
-            app:layout_constraintTop_toBottomOf="@id/etAlas"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            <!-- MENU 3: CUSTOM 1 -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardCustom1"
+                android:layout_width="0dp"
+                android:layout_height="160dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                android:clickable="true"
+                android:focusable="true">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="16dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="📋"
+                        android:textSize="40sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Laporan\nDesa"
+                        android:textAlignment="center"
+                        android:textStyle="bold"
+                        android:layout_marginTop="8dp"
+                        android:textColor="@color/text_dark"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-        <Button
-            android:id="@+id/btnHitungSegitiga"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Menghitung Luas"
-            app:layout_constraintTop_toBottomOf="@id/etTinggi"
-            app:layout_constraintStart_toStartOf="parent" />
+            <!-- MENU 4: LOGOUT -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardLogout"
+                android:layout_width="0dp"
+                android:layout_height="160dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="#FFF0F0">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="16dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🚪"
+                        android:textSize="40sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Logout\nAkun"
+                        android:textAlignment="center"
+                        android:textStyle="bold"
+                        android:layout_marginTop="8dp"
+                        android:textColor="#B3261E"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-        <TextView
-            android:id="@+id/tvHasilSegitiga"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hasil: 0"
-            android:textSize="18sp"
-            android:layout_marginStart="16dp"
-            app:layout_constraintBottom_toBottomOf="@id/btnHitungSegitiga"
-            app:layout_constraintStart_toEndOf="@id/btnHitungSegitiga"
-            app:layout_constraintTop_toTopOf="@id/btnHitungSegitiga" />
+        </GridLayout>
+    </androidx.core.widget.NestedScrollView>
 
-        <TextView
-            android:id="@+id/labelKubus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="2. Volume Kubus (Ruang)"
-            android:layout_marginTop="32dp"
-            app:layout_constraintTop_toBottomOf="@id/btnHitungSegitiga"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <EditText
-            android:id="@+id/etSisi"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="Masukkan Sisi"
-            android:inputType="numberDecimal"
-            app:layout_constraintTop_toBottomOf="@id/labelKubus"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        <Button
-            android:id="@+id/btnHitungKubus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Hitung Volume"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etSisi" />
-
-        <TextView
-            android:id="@+id/tvHasilKubus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hasil: 0"
-            android:textSize="18sp"
-            android:layout_marginStart="16dp"
-            app:layout_constraintBottom_toBottomOf="@id/btnHitungKubus"
-            app:layout_constraintStart_toEndOf="@id/btnHitungKubus"
-            app:layout_constraintTop_toTopOf="@id/btnHitungKubus" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

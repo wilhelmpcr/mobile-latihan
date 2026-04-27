@@ -25,9 +25,14 @@
             </intent-filter>
         </activity>
 
-        <!-- DashboardActivity  -->
+        <!-- MainActivity (SEKARANG MENJADI DASHBOARD UTAMA) -->
         <activity
-            android:name=".DashboardActivity"
+            android:name=".MainActivity"
+            android:exported="false" />
+
+        <!-- KalkulatorActivity (HALAMAN BARU) -->
+        <activity
+            android:name=".KalkulatorActivity"
             android:exported="false" />
 
         <!-- LoginResultActivity -->
@@ -38,11 +43,6 @@
         <!-- LoginMainActivity  -->
         <activity
             android:name=".FormLogin.LoginMainActivity"
-            android:exported="false" />
-
-        <!-- MainActivity -->
-        <activity
-            android:name=".MainActivity"
             android:exported="false" />
 
         <!-- WebViewActivity -->

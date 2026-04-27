@@ -17,15 +17,18 @@ class SplashScreenActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash_screen)
 
         sharedPreferences = getSharedPreferences("UserSession", MODE_PRIVATE)
+
         Handler(Looper.getMainLooper()).postDelayed({
             val isLogin = sharedPreferences.getBoolean("isLogin", false)
+
+            // Diarahkan ke MainActivity sebagai Dashboard Utama
             val intent = if (isLogin) {
-                Intent(this, DashboardActivity::class.java)
+                Intent(this, MainActivity::class.java)
             } else {
                 Intent(this, LoginMainActivity::class.java)
             }
             startActivity(intent)
             finish()
-        }, 2000) // 2 detik, bisa Anda atur
+        }, 2000)
     }
 }

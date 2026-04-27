@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Warna asli -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <!-- TAMBAHAN UNTUK TEMA BINA DESA -->
-    <color name="primary_green">#2E7D32</color>
-    <color name="primary_dark">#1B5E20</color>
-    <color name="accent_brown">#8D6E63</color>
-    <color name="background_cream">#F5F5DC</color>
+    <!-- TEMA BINA DESA MODERN -->
+    <color name="primary_desa">#2E7D32</color>
+    <color name="primary_dark_desa">#1B5E20</color>
+    <color name="accent_yellow">#FFC107</color>
+    <color name="bg_light">#F8F9FA</color>
+    <color name="text_dark">#333333</color>
     <color name="toolbar_background">#2E7D32</color>
     <color name="toolbar_title">#FFFFFF</color>
+
+    <!-- Warna Gradasi Header -->
+    <color name="header_start">#2E7D32</color>
+    <color name="header_end">#43A047</color>
 </resources>

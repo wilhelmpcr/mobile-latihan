@@ -1,50 +1,73 @@
 package com.example.exaudi_nebula
 
+import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
+import androidx.core.content.edit
+import com.example.exaudi_nebula.FormLogin.LoginMainActivity
+import com.example.exaudi_nebula.FormLogin.LoginResultActivity
+import com.example.exaudi_nebula.databinding.ActivityMainBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class MainActivity : AppCompatActivity() {
+
+    // Menggunakan ViewBinding sesuai gaya lab kampus
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var sharedPreferences: SharedPreferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        
+        // Inisialisasi ViewBinding
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val toolbar = findViewById<Toolbar>(R.id.toolbarMain)
-        setSupportActionBar(toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = "Rumus Bangun Ruang"
+        sharedPreferences = getSharedPreferences("UserSession", MODE_PRIVATE)
 
-        val etAlas = findViewById<EditText>(R.id.etAlas)
-        val etTinggi = findViewById<EditText>(R.id.etTinggi)
-        val btnSegitiga = findViewById<Button>(R.id.btnHitungSegitiga)
-        val tvHasilSegitiga = findViewById<TextView>(R.id.tvHasilSegitiga)
+        // Sapaan User di Header
+        val namaUser = sharedPreferences.getString("NAMA_USER", "Exaudi")
+        binding.tvWelcome.text = "Halo, $namaUser!"
 
-        val etSisi = findViewById<EditText>(R.id.etSisi)
-        val btnKubus = findViewById<Button>(R.id.btnHitungKubus)
-        val tvHasilKubus = findViewById<TextView>(R.id.tvHasilKubus)
-
-        btnSegitiga.setOnClickListener {
-            val alas = etAlas.text.toString().toDoubleOrNull() ?: 0.0
-            val tinggi = etTinggi.text.toString().toDoubleOrNull() ?: 0.0
-            val hasil = 0.5 * alas * tinggi
-            tvHasilSegitiga.text = "Hasil: $hasil"
-            Log.d("EXAUDI_LOG", "Segitiga - Alas: $alas, Tinggi: $tinggi, Hasil: $hasil")
+        // Logika Pindah Halaman (Sesuai gaya lab kampus: Router/Hub)
+        
+        // 1. Ke Kalkulator Bangun Ruang
+        binding.cardRumus.setOnClickListener {
+            val intent = Intent(this, KalkulatorActivity::class.java)
+            startActivity(intent)
         }
 
-        btnKubus.setOnClickListener {
-            val sisi = etSisi.text.toString().toDoubleOrNull() ?: 0.0
-            val hasil = sisi * sisi * sisi
-            tvHasilKubus.text = "Hasil: $hasil"
-            Log.i("EXAUDI_LOG", "Kubus - Sisi: $sisi, Hasil: $hasil")
+        // 2. Ke Laporan/Result (Contoh Menu di Lab)
+        binding.cardCustom1.setOnClickListener {
+            val intent = Intent(this, LoginResultActivity::class.java)
+            startActivity(intent)
         }
-    }
 
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
-        return true
+        // 3. Ke Web View Bina Desa
+        binding.cardWebView.setOnClickListener {
+            val intent = Intent(this, WebViewActivity::class.java)
+            startActivity(intent)
+        }
+
+        // 4. Logika Logout dengan MaterialAlertDialogBuilder (Sesuai Lab Kampus)
+        binding.cardLogout.setOnClickListener {
+            MaterialAlertDialogBuilder(this)
+                .setTitle("Konfirmasi")
+                .setMessage("Apakah Anda yakin ingin logout?")
+                .setPositiveButton("Ya") { dialog, _ ->
+                    // Menggunakan KTX edit untuk menghapus session
+                    sharedPreferences.edit {
+                        clear()
+                        apply()
+                    }
+                    val intent = Intent(this, LoginMainActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    startActivity(intent)
+                    finish()
+                    dialog.dismiss()
+                }
+                .setNegativeButton("Tidak", null)
+                .show()
+        }
     }
 }
