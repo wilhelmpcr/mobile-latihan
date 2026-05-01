@@ -22,5 +22,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "exaudi-nebula"
+rootProject.name = "wilhelm-paus"
 include(":app")

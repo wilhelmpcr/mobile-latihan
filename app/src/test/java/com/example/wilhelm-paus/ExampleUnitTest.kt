@@ -1,4 +1,4 @@
-package com.example.exaudi_nebula
+package com.example.`wilhelm-paus`
 
 import org.junit.Test
 

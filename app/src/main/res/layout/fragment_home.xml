@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_light">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Header Navy -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:background="@color/primary_desa" />
+
+        <TextView
+            android:id="@+id/tvWelcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-110dp"
+            android:layout_marginStart="24dp"
+            android:text="Halo, Wilhelm Paus!"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:text="Selamat datang di Portal Bina Desa"
+            android:textColor="#B3FFFFFF"
+            android:textSize="12sp" />
+
+        <!-- Grid Menu (4 Tombol Utama) -->
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:padding="16dp"
+            android:layout_marginTop="30dp">
+
+            <!-- Card 1: Kalkulator -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardRumus"
+                android:layout_width="0dp"
+                android:layout_height="140dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                android:clickable="true"
+                android:focusable="true">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="📐" android:textSize="32sp" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Kalkulator" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="@color/text_main"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Card 2: Hasil Login -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardCustom1"
+                android:layout_width="0dp"
+                android:layout_height="140dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                android:clickable="true"
+                android:focusable="true">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="📄" android:textSize="32sp" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Hasil Login" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="@color/text_main"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Card 3: Web View -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardWebView"
+                android:layout_width="0dp"
+                android:layout_height="140dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                android:clickable="true"
+                android:focusable="true">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🌐" android:textSize="32sp" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Web View" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="@color/text_main"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Card 4: Logout -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardLogout"
+                android:layout_width="0dp"
+                android:layout_height="140dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                android:clickable="true"
+                android:focusable="true">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🚪" android:textSize="32sp" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Keluar" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="#D32F2F"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </GridLayout>
+
+        <View android:layout_width="match_parent" android:layout_height="100dp"/>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

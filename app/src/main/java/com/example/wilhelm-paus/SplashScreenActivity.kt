@@ -1,4 +1,4 @@
-package com.example.exaudi_nebula
+package com.example.wilhelm_paus
 
 import android.content.Intent
 import android.content.SharedPreferences
@@ -6,7 +6,8 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
-import com.example.exaudi_nebula.FormLogin.LoginMainActivity
+import com.example.wilhelm_paus.FormLogin.LoginMainActivity
+import com.example.wilhelm_paus.R
 
 class SplashScreenActivity : AppCompatActivity() {
 
@@ -21,7 +22,7 @@ class SplashScreenActivity : AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
             val isLogin = sharedPreferences.getBoolean("isLogin", false)
 
-            // Diarahkan ke MainActivity sebagai Dashboard Utama
+            // Arahkan ke MainActivity (Halaman Utama dengan Bottom Navigation)
             val intent = if (isLogin) {
                 Intent(this, MainActivity::class.java)
             } else {
@@ -29,6 +30,6 @@ class SplashScreenActivity : AppCompatActivity() {
             }
             startActivity(intent)
             finish()
-        }, 2000)
+        }, 3000)
     }
 }

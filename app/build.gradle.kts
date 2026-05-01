@@ -3,17 +3,13 @@ plugins {
 }
 
 android {
-    namespace = "com.example.exaudi_nebula"
-    compileSdk {
-        version = release(36) {
-            minorApiLevel = 1
-        }
-    }
+    namespace = "com.example.wilhelm_paus"
+    compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.exaudi_nebula"
+        applicationId = "com.example.wilhelm_paus"
         minSdk = 27
-        targetSdk = 36
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 

@@ -1,4 +1,4 @@
-package com.example.exaudi_nebula
+package com.example.wilhelm_paus
 
 import android.os.Bundle
 import android.util.Log
@@ -7,6 +7,7 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import com.example.wilhelm_paus.R
 
 class KalkulatorActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,7 +17,7 @@ class KalkulatorActivity : AppCompatActivity() {
         val toolbar = findViewById<Toolbar>(R.id.toolbarKalkulator)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = "Rumus Bangun Ruang"
+        supportActionBar?.title = "Kalkulator Wilhelm Paus"
 
         val etAlas = findViewById<EditText>(R.id.etAlas)
         val etTinggi = findViewById<EditText>(R.id.etTinggi)
@@ -32,19 +33,19 @@ class KalkulatorActivity : AppCompatActivity() {
             val tinggi = etTinggi.text.toString().toDoubleOrNull() ?: 0.0
             val hasil = 0.5 * alas * tinggi
             tvHasilSegitiga.text = "Hasil: $hasil"
-            Log.d("EXAUDI_LOG", "Segitiga - Alas: $alas, Tinggi: $tinggi, Hasil: $hasil")
+            Log.d("WILHELM_LOG", "Segitiga - Alas: $alas, Tinggi: $tinggi, Hasil: $hasil")
         }
 
         btnKubus.setOnClickListener {
             val sisi = etSisi.text.toString().toDoubleOrNull() ?: 0.0
             val hasil = sisi * sisi * sisi
             tvHasilKubus.text = "Hasil: $hasil"
-            Log.i("EXAUDI_LOG", "Kubus - Sisi: $sisi, Hasil: $hasil")
+            Log.i("WILHELM_LOG", "Kubus - Sisi: $sisi, Hasil: $hasil")
         }
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
+        onBackPressedDispatcher.onBackPressed()
         return true
     }
 }

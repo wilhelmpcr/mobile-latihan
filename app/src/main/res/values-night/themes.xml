@@ -1,7 +1,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.Exaudinebula" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.WilhelmPaus" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="colorPrimary">@color/primary_desa</item>
+        <item name="colorSecondary">@color/accent_desa</item>
+        <item name="android:statusBarColor">@color/black</item>
+        <item name="colorOnPrimary">@color/white</item>
     </style>
 </resources>

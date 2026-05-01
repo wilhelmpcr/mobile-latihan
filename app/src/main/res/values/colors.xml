@@ -3,16 +3,18 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <!-- TEMA BINA DESA MODERN -->
-    <color name="primary_desa">#2E7D32</color>
-    <color name="primary_dark_desa">#1B5E20</color>
-    <color name="accent_yellow">#FFC107</color>
+    <!-- TEMA BINA DESA -->
+    <color name="primary_desa">#1565C0</color>
+    <color name="primary_dark_desa">#0D47A1</color>
+    <color name="accent_desa">#1976D2</color>
     <color name="bg_light">#F8F9FA</color>
-    <color name="text_dark">#333333</color>
-    <color name="toolbar_background">#2E7D32</color>
-    <color name="toolbar_title">#FFFFFF</color>
+    <color name="text_main">#0D47A1</color>
+    <color name="text_secondary">#546E7A</color>
 
-    <!-- Warna Gradasi Header -->
-    <color name="header_start">#2E7D32</color>
-    <color name="header_end">#43A047</color>
+    <!-- WARNA SPLASH PURPLE (Sesuai Gambar) -->
+    <color name="splash_purple">#6200EE</color>
+
+    <!-- Gradasi Background -->
+    <color name="grad_start">#1976D2</color>
+    <color name="grad_end">#0D47A1</color>
 </resources>
