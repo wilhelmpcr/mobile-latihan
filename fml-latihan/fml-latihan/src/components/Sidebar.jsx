@@ -1,4 +1,10 @@
-import { MdDashboard, MdAdd, MdErrorOutline, MdRestaurantMenu, MdLogout } from "react-icons/md";
+import {
+  MdDashboard,
+  MdAdd,
+  MdErrorOutline,
+  MdRestaurantMenu,
+  MdLogout,
+} from "react-icons/md";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { HiOutlineUserGroup } from "react-icons/hi";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -7,31 +13,57 @@ import { GiChefToque } from "react-icons/gi";
 export default function Sidebar() {
   const navigate = useNavigate();
 
+  // Variabel menus harus didefinisikan di dalam fungsi Sidebar
   const menus = [
     { id: "menu-1", name: "Dashboard", icon: MdDashboard, path: "/" },
-    { id: "menu-2", name: "Orders", icon: AiOutlineShoppingCart, path: "/orders" },
-    { id: "menu-3", name: "Customers", icon: HiOutlineUserGroup, path: "/customers" },
-    { id: "menu-4", name: "Error 400", icon: MdErrorOutline, path: "/error-400" },
-    { id: "menu-5", name: "Error 401", icon: MdErrorOutline, path: "/error-401" },
-    { id: "menu-6", name: "Error 403", icon: MdErrorOutline, path: "/error-403" },
+    {
+      id: "menu-2",
+      name: "Orders",
+      icon: AiOutlineShoppingCart,
+      path: "/orders",
+    },
+    {
+      id: "menu-3",
+      name: "Customers",
+      icon: HiOutlineUserGroup,
+      path: "/customers",
+    },
+    {
+      id: "menu-4",
+      name: "Error 400",
+      icon: MdErrorOutline,
+      path: "/error-400",
+    },
+    {
+      id: "menu-5",
+      name: "Error 401",
+      icon: MdErrorOutline,
+      path: "/error-401",
+    },
+    {
+      id: "menu-6",
+      name: "Error 403",
+      icon: MdErrorOutline,
+      path: "/error-403",
+    },
   ];
 
   return (
-    <div className="flex flex-col min-h-screen w-72 bg-white shadow-2xl sticky top-0">
+    <div className="flex flex-col min-h-screen w-72 bg-dark-card border-r border-garis sticky top-0">
       {/* Logo */}
       <div className="p-8 border-b border-garis">
         <div className="flex items-center gap-3">
-          <div className="bg-green-500 p-2 rounded-xl">
+          <div className="bg-oranye p-2 rounded-xl shadow-[0_0_15px_rgba(255,92,0,0.3)]">
             <MdRestaurantMenu className="text-white text-2xl" />
           </div>
           <div>
             <div className="flex items-baseline">
-              <span className="font-poppins text-2xl font-bold text-gray-900">
+              <span className="font-poppins text-2xl font-bold text-white">
                 NusaCater
               </span>
-              <span className="text-hijau text-2xl font-bold">.</span>
+              <span className="text-oranye text-2xl font-bold">.</span>
             </div>
-            <span className="text-xs text-teks-samping font-medium tracking-wide">
+            <span className="text-[10px] text-teks-samping font-semibold tracking-[0.2em]">
               CATERING DASHBOARD
             </span>
           </div>
@@ -40,7 +72,7 @@ export default function Sidebar() {
 
       {/* Menu */}
       <div className="flex-1 px-4 py-8 overflow-y-auto">
-        <p className="text-xs font-semibold text-teks-samping px-4 mb-4 tracking-wider">
+        <p className="text-[10px] font-bold text-teks-samping/50 px-4 mb-6 tracking-[0.2em]">
           MAIN MENU
         </p>
 
@@ -55,8 +87,8 @@ export default function Sidebar() {
                     `flex items-center rounded-xl p-4 font-medium transition-all duration-200
                     ${
                       isActive
-                        ? "bg-green-200 text-hijau font-extrabold"
-                        : "text-gray-600 hover:bg-green-200 hover:text-hijau"
+                        ? "bg-oranye/10 text-oranye shadow-[inset_4px_0_0_0_#FF5C00]"
+                        : "text-teks-samping hover:bg-white/5 hover:text-white"
                     }`
                   }
                 >
@@ -71,34 +103,33 @@ export default function Sidebar() {
 
       {/* Footer */}
       <div className="p-4 border-t border-garis">
-        <div className="bg-gradient-to-r from-hijau to-emerald-600 rounded-2xl p-5 shadow-xl">
-          <div className="flex items-center gap-2 mb-2">
+        <div className="bg-gradient-to-br from-oranye to-[#ff8c00] rounded-3xl p-5 shadow-lg relative overflow-hidden">
+          <div className="absolute -right-4 -top-4 w-16 h-16 bg-white/10 rounded-full blur-xl"></div>
+
+          <div className="flex items-center gap-2 mb-2 relative">
             <GiChefToque className="text-white text-xl" />
-            <p className="text-white text-sm font-semibold">Tambah Menu Baru!</p>
+            <p className="text-white text-sm font-semibold">
+              Tambah Menu Baru!
+            </p>
           </div>
-          <p className="text-white/70 text-xs mb-3">Kelola paket catering dengan mudah</p>
-          <button className="w-full bg-white/20 backdrop-blur rounded-xl py-2.5 text-white font-semibold text-sm hover:bg-white/30 transition-all flex items-center justify-center gap-2">
-            <MdAdd className="text-lg" />
+          <p className="text-white/80 text-[11px] mb-4 relative">
+            Kelola paket catering dengan mudah
+          </p>
+
+          {/* Tombol yang diperbaiki: ganti text-white menjadi text-oranye */}
+          <button className="w-full bg-white text-[#FF5C00] rounded-xl py-2.5 font-bold text-xs hover:bg-gray-100 transition-all flex items-center justify-center gap-2 relative z-10 shadow-sm">
+            <MdAdd className="text-lg text-[#FF5C00]" />
             Tambah Paket
           </button>
         </div>
 
-        <button 
-          onClick={() => navigate('/login')}
-          className="mt-4 w-full flex items-center justify-center gap-2 p-3 text-red-500 hover:bg-red-50 rounded-xl transition-all font-semibold"
+        <button
+          onClick={() => navigate("/login")}
+          className="mt-4 w-full flex items-center justify-center gap-2 p-3 text-red-400 hover:bg-red-400/10 rounded-xl transition-all font-semibold"
         >
           <MdLogout className="text-xl" />
           Logout
         </button>
-
-        <div className="mt-6 text-center">
-          <p className="text-xs font-semibold text-teks-samping">
-            NusaCater Catering
-          </p>
-          <p className="text-xs text-teks-samping/60 mt-1">
-            © 2025 All Rights Reserved
-          </p>
-        </div>
       </div>
     </div>
   );

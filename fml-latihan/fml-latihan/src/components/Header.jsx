@@ -4,68 +4,36 @@ import { SlSettings } from "react-icons/sl";
 
 export default function Header() {
   return (
-    <div
-      id="header-container"
-      className="flex justify-between items-center p-4 bg-white border-b border-gray-100"
-    >
+    <div className="flex justify-between items-center p-6 bg-dark-bg/50 backdrop-blur-md border-b border-garis sticky top-0 z-50">
       {/* Search Bar */}
-      <div id="search-bar" className="relative w-full max-w-lg">
+      <div className="relative w-full max-w-lg">
         <input
-          id="search-input"
           type="text"
           placeholder="Search Here..."
-          className="border border-gray-100 p-2 pr-10 bg-gray-50 w-full max-w-lg rounded-md outline-none focus:ring-2 focus:ring-green-200 transition"
+          className="bg-dark-card border border-garis p-3 pr-10 text-white w-full rounded-2xl outline-none focus:border-oranye/50 transition-all text-sm"
         />
-        <FaSearch
-          id="search-icon"
-          className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-300"
-        />
+        <FaSearch className="absolute right-4 top-1/2 -translate-y-1/2 text-teks-samping" />
       </div>
 
       {/* Icon & Profile Section */}
-      <div id="icons-container" className="flex items-center space-x-4">
-        {/* Notification */}
-        <div
-          id="notification-icon"
-          className="relative p-3 bg-blue-100 rounded-2xl text-blue-500 cursor-pointer hover:bg-blue-200 transition"
-        >
-          <FaBell />
-          <span
-            id="notification-badge"
-            className="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 bg-blue-500 text-white rounded-full px-1.5 py-0.5 text-xs"
-          >
-            50
-          </span>
-        </div>
-
-        {/* Chart */}
-        <div
-          id="chart-icon"
-          className="p-3 bg-blue-100 rounded-2xl cursor-pointer hover:bg-blue-200 transition"
-        >
-          <FcAreaChart />
-        </div>
-
-        {/* Settings */}
-        <div
-          id="settings-icon"
-          className="p-3 bg-red-100 rounded-2xl text-red-500 cursor-pointer hover:bg-red-200 transition"
-        >
-          <SlSettings />
+      <div className="flex items-center space-x-6">
+        <div className="flex space-x-3">
+          {[FaBell, FcAreaChart, SlSettings].map((Icon, i) => (
+            <div key={i} className="p-3 bg-dark-card border border-garis rounded-xl text-teks-samping cursor-pointer hover:text-white transition">
+              <Icon />
+            </div>
+          ))}
         </div>
 
         {/* Profile */}
-        <div
-          id="profile-container"
-          className="flex items-center space-x-3 border-l pl-4 border-gray-200"
-        >
-          <span id="profile-text" className="text-sm text-gray-700">
-            Hello, <b>Wilhelm samto tamba</b>
-          </span>
+        <div className="flex items-center space-x-3 border-l pl-6 border-garis">
+          <div className="text-right">
+            <p className="text-xs text-teks-samping">Welcome back,</p>
+            <p className="text-sm font-bold text-white">Wilhelm S. Tamba</p>
+          </div>
           <img
-            id="profile-avatar"
             src="/img/profile.jpg"
-            className="w-10 h-10 rounded-full ring-2 ring-green-200 object-cover"
+            className="w-11 h-11 rounded-full ring-2 ring-oranye/20 object-cover"
             alt="avatar"
           />
         </div>

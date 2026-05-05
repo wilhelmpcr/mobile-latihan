@@ -43,67 +43,72 @@ export default function Login() {
   };
 
   return (
-    <div>
-      <h2 className="text-2xl font-semibold text-gray-700 mb-2 text-center">
-        Selamat Datang Kembali 👋
-      </h2>
-      <p className="text-center text-sm text-gray-400 mb-6">
-        Masuk ke panel admin catering Anda
+    <div className="w-full">
+      {/* Teks Instruksi seperti di gambar */}
+      <p className="text-center text-[11px] text-gray-500 mb-8 leading-relaxed max-w-[280px] mx-auto">
+        Use the details provided you by your account administrator.
+        Next time you will only need the username and the password.
       </p>
 
       {error && (
-        <div className="bg-red-50 border border-red-200 mb-5 p-4 text-sm font-light text-gray-600 rounded-xl flex items-center">
+        <div className="bg-red-500/10 border border-red-500/20 mb-5 p-4 text-sm font-light text-red-400 rounded-xl flex items-center">
           <BsFillExclamationDiamondFill className="text-red-500 me-2 text-lg flex-shrink-0" />
           {error}
         </div>
       )}
 
       {loading && (
-        <div className="bg-gray-50 border border-gray-200 mb-5 p-4 text-sm rounded-xl flex items-center">
-          <ImSpinner2 className="me-2 animate-spin text-hijau" />
+        <div className="bg-white/5 border border-white/10 mb-5 p-4 text-sm text-gray-300 rounded-xl flex items-center">
+          <ImSpinner2 className="me-2 animate-spin text-[#FF5C00]" />
           Mohon Tunggu...
         </div>
       )}
 
-      <form onSubmit={handleSubmit}>
-        <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            Username / Email
+      <form onSubmit={handleSubmit} className="space-y-4">
+        {/* Input Username */}
+        <div className="relative group">
+          <label className="absolute left-4 -top-2.5 px-1 bg-dark-card text-[11px] font-semibold text-[#FF5C00] z-10">
+            Username
           </label>
           <input
             type="text"
-            className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl shadow-sm placeholder-gray-400 outline-none focus:ring-2 focus:ring-green-300 transition"
-            placeholder="emilys"
             name="email"
             onChange={handleChange}
+            placeholder="Admin1_resto"
+            className="w-full px-5 py-4 bg-transparent border border-white/20 rounded-2xl text-white placeholder-white/20 outline-none focus:border-[#FF5C00] transition-all"
           />
         </div>
-        <div className="mb-6">
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+
+        {/* Input Password */}
+        <div className="relative group">
+          <label className="absolute left-4 -top-2.5 px-1 bg-dark-card text-[11px] font-semibold text-[#FF5C00] z-10">
             Password
           </label>
           <input
             type="password"
-            className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl shadow-sm placeholder-gray-400 outline-none focus:ring-2 focus:ring-green-300 transition"
-            placeholder="emilyspass"
             name="password"
             onChange={handleChange}
+            placeholder="••••••••"
+            className="w-full px-5 py-4 bg-transparent border border-white/20 rounded-2xl text-white placeholder-white/20 outline-none focus:border-[#FF5C00] transition-all"
           />
-          <p className="text-xs text-gray-400 mt-1">
-            Demo: username <b>emilys</b> / password <b>emilyspass</b>
-          </p>
         </div>
+
+        <p className="text-[10px] text-gray-600 text-center italic">
+          Demo: emilys / emilyspass
+        </p>
+
+        {/* Tombol Login Gradient */}
         <button
           type="submit"
-          className="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-2.5 px-4 rounded-xl transition duration-300 shadow"
+          className="w-full mt-6 bg-gradient-to-r from-[#FF8C00] to-[#FF4500] hover:brightness-110 text-white font-bold py-4 px-4 rounded-2xl transition duration-300 shadow-[0_10px_20px_rgba(255,92,0,0.2)] active:scale-95"
         >
-          Login
+          Sign in
         </button>
       </form>
 
-      <div className="mt-4 text-center text-sm text-gray-500">
+      <div className="mt-8 text-center text-xs text-gray-600">
         Belum punya akun?{" "}
-        <Link to="/register" className="text-hijau font-semibold hover:underline">
+        <Link to="/register" className="text-[#FF5C00] font-bold hover:underline">
           Daftar
         </Link>
       </div>

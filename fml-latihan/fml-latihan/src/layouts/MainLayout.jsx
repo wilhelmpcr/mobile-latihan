@@ -4,16 +4,12 @@ import Sidebar from "../components/Sidebar";
 
 export default function MainLayout() {
   return (
-    <div className="flex min-h-screen bg-gray-50">
-      {/* Sidebar tetap di kiri */}
+    // Gunakan bg-[#0F0F0F] untuk memaksa warna hitam jika config belum terbaca
+    <div className="flex min-h-screen bg-[#0F0F0F] text-white font-poppins">
       <Sidebar />
-
-      {/* Konten utama */}
       <div className="flex-1 flex flex-col">
         <Header />
-
-        <main className="flex-1 p-6">
-          {/* Outlet akan me-render halaman sesuai route aktif */}
+        <main className="flex-1 p-8 overflow-y-auto">
           <Outlet />
         </main>
       </div>

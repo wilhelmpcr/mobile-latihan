@@ -17,43 +17,55 @@ export default function Orders() {
     <div id="dashboard-container">
       <PageHeader title="Orders" breadcrumb="Sales Report" />
 
-      <div className="mt-6 bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden">
-        <div className="overflow-x-auto">
-          <table className="w-full text-left">
+      {/* Container Tabel: Background Dark Card */}
+      <div className="mt-6 bg-[#1A1A1A] rounded-[32px] border border-white/5 overflow-hidden shadow-2xl">
+        <div className="overflow-x-auto px-4 pb-4">
+          <table className="w-full text-left border-separate border-spacing-y-2">
             <thead>
-              <tr className="bg-gray-50 border-b border-gray-100">
-                <th className="p-4 font-semibold text-gray-600">Order ID</th>
-                <th className="p-4 font-semibold text-gray-600">Customer</th>
-                <th className="p-4 font-semibold text-gray-600">Paket Menu</th>
-                <th className="p-4 font-semibold text-gray-600">Status</th>
-                <th className="p-4 font-semibold text-gray-600">Total Price</th>
-                <th className="p-4 font-semibold text-gray-600">Date</th>
+              <tr className="text-[10px] text-gray-500 uppercase tracking-[0.2em]">
+                <th className="p-4 font-bold">Order ID</th>
+                <th className="p-4 font-bold">Customer</th>
+                <th className="p-4 font-bold">Paket Menu</th>
+                <th className="p-4 font-bold">Status</th>
+                <th className="p-4 font-bold">Total Price</th>
+                <th className="p-4 font-bold">Date</th>
               </tr>
             </thead>
             <tbody>
               {ordersData.map((order) => (
                 <tr
                   key={order.id}
-                  className="border-b border-gray-50 hover:bg-gray-50/80 transition-colors"
+                  className="bg-white/[0.02] hover:bg-white/[0.05] transition-all group"
                 >
-                  <td className="p-4 text-sm font-bold text-gray-800">{order.id}</td>
-                  <td className="p-4 text-sm text-gray-600">{order.customer}</td>
-                  <td className="p-4 text-sm text-gray-500">{order.menu}</td>
+                  {/* Order ID dengan warna Oranye Brand */}
+                  <td className="p-4 text-sm font-bold text-[#FF5C00] first:rounded-l-2xl">
+                    {order.id}
+                  </td>
+                  <td className="p-4 text-sm font-semibold text-gray-200">
+                    {order.customer}
+                  </td>
+                  <td className="p-4 text-sm text-gray-400">
+                    {order.menu}
+                  </td>
                   <td className="p-4 text-sm">
                     <span
-                      className={`px-3 py-1 rounded-lg text-xs font-bold ${
+                      className={`px-4 py-1.5 rounded-xl text-[10px] font-black uppercase tracking-tighter ${
                         order.status === "Completed"
-                          ? "bg-green-100 text-green-600"
+                          ? "bg-green-500/10 text-green-500"
                           : order.status === "Pending"
-                          ? "bg-blue-100 text-blue-600"
-                          : "bg-red-100 text-red-600"
+                          ? "bg-amber-500/10 text-amber-500"
+                          : "bg-red-500/10 text-red-500"
                       }`}
                     >
                       {order.status}
                     </span>
                   </td>
-                  <td className="p-4 text-sm font-semibold text-gray-700">{order.total}</td>
-                  <td className="p-4 text-sm text-gray-400 font-medium">{order.date}</td>
+                  <td className="p-4 text-sm font-bold text-white">
+                    {order.total}
+                  </td>
+                  <td className="p-4 text-sm text-gray-500 last:rounded-r-2xl">
+                    {order.date}
+                  </td>
                 </tr>
               ))}
             </tbody>
