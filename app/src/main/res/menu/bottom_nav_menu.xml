@@ -7,9 +7,13 @@
     <item
         android:id="@+id/nav_about"
         android:icon="@android:drawable/ic_menu_info_details"
-        android:title="About" />
+        android:title="Tentang" />
+    <item
+        android:id="@+id/nav_settings"
+        android:icon="@android:drawable/ic_menu_manage"
+        android:title="Setelan" />
     <item
         android:id="@+id/nav_profile"
         android:icon="@android:drawable/ic_menu_myplaces"
-        android:title="Profile" />
+        android:title="Profil" />
 </menu>

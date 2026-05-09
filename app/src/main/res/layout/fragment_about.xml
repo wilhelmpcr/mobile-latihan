@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -18,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Bina Desa adalah platform digital yang dirancang untuk mempercepat distribusi bantuan sosial dan transparansi data ditingkat desa. Aplikasi ini memungkinkan masyarakat mengakses layanan secara mandiri."
+        android:text="Platform digital untuk transparansi bantuan desa."
         android:textColor="@color/text_secondary"
         android:textSize="14sp" />
 
@@ -26,15 +27,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Fitur Utama:"
+        android:text="Nilai Utama Kami:"
         android:textStyle="bold"
         android:textColor="@color/text_main" />
 
-    <TextView
-        android:layout_width="wrap_content"
+    <!-- Penerapan Chip & ChipGroup -->
+    <com.google.android.material.chip.ChipGroup
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="• Kalkulator Bantuan Terintegrasi\n• Akses Web Portal Bina Desa\n• Autentikasi Keamanan SharedPreferences"
-        android:textColor="@color/text_secondary" />
+        android:layout_marginTop="12dp"
+        app:chipSpacing="8dp">
+
+        <com.google.android.material.chip.Chip
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Peduli"
+            app:chipBackgroundColor="#E3F2FD"
+            app:chipIcon="@android:drawable/ic_menu_my_calendar" />
+
+        <com.google.android.material.chip.Chip
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tepat Sasaran"
+            app:chipBackgroundColor="#E8F5E9" />
+
+        <com.google.android.material.chip.Chip
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Transparan"
+            app:chipBackgroundColor="#FFF3E0" />
+    </com.google.android.material.chip.ChipGroup>
 
 </LinearLayout>

@@ -23,11 +23,12 @@ class MainActivity : AppCompatActivity() {
             replaceFragment(HomeFragment())
         }
 
-        // Bottom Navigation hanya untuk navigasi tab
+        // Bottom Navigation
         binding.bottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_home -> replaceFragment(HomeFragment())
                 R.id.nav_about -> replaceFragment(AboutFragment())
+                R.id.nav_settings -> replaceFragment(SettingsFragment())
                 R.id.nav_profile -> replaceFragment(ProfileFragment())
             }
             true
@@ -37,6 +38,7 @@ class MainActivity : AppCompatActivity() {
     private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, fragment)
+            .setTransition(androidx.fragment.app.FragmentTransaction.TRANSIT_FRAGMENT_FADE)
             .commit()
     }
 }
