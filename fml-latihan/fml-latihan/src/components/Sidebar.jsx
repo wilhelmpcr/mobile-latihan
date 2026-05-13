@@ -4,6 +4,7 @@ import {
   MdErrorOutline,
   MdRestaurantMenu,
   MdLogout,
+  MdStorefront,
 } from "react-icons/md";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { HiOutlineUserGroup } from "react-icons/hi";
@@ -30,18 +31,24 @@ export default function Sidebar() {
     },
     {
       id: "menu-4",
+      name: "Products",
+      icon: MdStorefront,
+      path: "/products",
+    },
+    {
+      id: "menu-5",
       name: "Error 400",
       icon: MdErrorOutline,
       path: "/error-400",
     },
     {
-      id: "menu-5",
+      id: "menu-6",
       name: "Error 401",
       icon: MdErrorOutline,
       path: "/error-401",
     },
     {
-      id: "menu-6",
+      id: "menu-7",
       name: "Error 403",
       icon: MdErrorOutline,
       path: "/error-403",
