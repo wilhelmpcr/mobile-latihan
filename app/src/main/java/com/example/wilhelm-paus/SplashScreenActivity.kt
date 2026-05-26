@@ -1,5 +1,6 @@
 package com.example.wilhelm_paus
 
+import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -17,16 +18,16 @@ class SplashScreenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
 
-        sharedPreferences = getSharedPreferences("UserSession", MODE_PRIVATE)
+        sharedPreferences = getSharedPreferences("UserSession", Context.MODE_PRIVATE)
 
         Handler(Looper.getMainLooper()).postDelayed({
             val isLogin = sharedPreferences.getBoolean("isLogin", false)
+            val finishedOnboarding = sharedPreferences.getBoolean("finishedOnboarding", false)
 
-            // Arahkan ke MainActivity (Halaman Utama dengan Bottom Navigation)
-            val intent = if (isLogin) {
-                Intent(this, MainActivity::class.java)
-            } else {
-                Intent(this, LoginMainActivity::class.java)
+            val intent = when {
+                !finishedOnboarding -> Intent(this, OnboardingActivity::class.java)
+                isLogin -> Intent(this, MainActivity::class.java)
+                else -> Intent(this, LoginMainActivity::class.java)
             }
             startActivity(intent)
             finish()

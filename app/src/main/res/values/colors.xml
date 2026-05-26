@@ -17,4 +17,6 @@
     <!-- Gradasi Background -->
     <color name="grad_start">#1976D2</color>
     <color name="grad_end">#0D47A1</color>
+
+    <color name="abu_gelap">#424242</color>
 </resources>

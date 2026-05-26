@@ -22,6 +22,7 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".OnboardingActivity" />
         <activity android:name=".DashboardActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".KalkulatorActivity" />

@@ -7,20 +7,21 @@
     android:layout_height="match_parent"
     android:background="@color/bg_light">
 
-    <!-- Background Wallpaper (Simulasi gambar orang banyak) -->
+    <!-- Background Wallpaper -->
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/background"
         android:scaleType="centerCrop"
-        android:alpha="0.3" />
+        android:alpha="0.3"
+        android:contentDescription="@null" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#800D47A1" />
 
-    <!-- Card Utama Login (Horizontal Split) -->
+    <!-- Card Utama Login -->
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -34,8 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:baselineAligned="false"
-            android:orientation="horizontal"
-            android:padding="0dp">
+            android:orientation="horizontal">
 
             <!-- Sisi Kiri: Informasi Sistem -->
             <LinearLayout
@@ -44,21 +44,27 @@
                 android:layout_weight="1.2"
                 android:background="#F0F4F8"
                 android:orientation="vertical"
-                android:padding="32dp">
+                android:padding="32dp"
+                android:gravity="center_horizontal">
 
+                <!-- LOGO DISESUAIKAN KE logobansos -->
                 <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:src="@drawable/icon1" />
+                    android:id="@+id/imgLogo"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/logobansos"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="Logo Bantuan" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-                    android:text="SISTEM BANSOS TERPADU"
+                    android:layout_marginTop="16dp"
+                    android:text="SISTEM BANTUAN TERPADU"
                     android:textColor="@color/text_main"
-                    android:textSize="22sp"
-                    android:textStyle="bold" />
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:gravity="center" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -67,7 +73,8 @@
                     android:text="Peduli • Tepat Sasaran • Berkeadilan"
                     android:textColor="@color/accent_desa"
                     android:textSize="12sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:gravity="center" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -75,47 +82,8 @@
                     android:layout_marginTop="16dp"
                     android:text="Platform terintegrasi untuk pengelolaan bantuan sosial secara transparan, akuntabel, dan berkelanjutan."
                     android:textColor="@color/text_secondary"
-                    android:textSize="13sp" />
-
-                <!-- Badge Informasi Kecil -->
-                <GridLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-                    android:columnCount="2">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical"
-                        android:layout_margin="4dp"
-                        android:background="@drawable/header_background"
-                        android:padding="8dp">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="✓ Bantuan Tepat"
-                            android:textColor="@color/white"
-                            android:textSize="10sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical"
-                        android:layout_margin="4dp"
-                        android:background="@drawable/header_background"
-                        android:padding="8dp">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="✓ Data Valid"
-                            android:textColor="@color/white"
-                            android:textSize="10sp" />
-                    </LinearLayout>
-                </GridLayout>
+                    android:textSize="13sp"
+                    android:gravity="center" />
 
             </LinearLayout>
 
@@ -132,7 +100,7 @@
                     android:layout_height="wrap_content"
                     android:text="Masuk ke Sistem"
                     android:textColor="@color/text_main"
-                    android:textSize="24sp"
+                    android:textSize="22sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -180,33 +148,16 @@
                     android:paddingHorizontal="16dp"
                     android:textSize="14sp" />
 
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="Ingat Saya"
-                    android:textSize="12sp"
-                    android:textColor="@color/text_secondary"/>
-
                 <Button
                     android:id="@+id/btnLogin"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="32dp"
                     android:backgroundTint="@color/primary_desa"
                     android:text="➜ Login"
                     android:textColor="@color/white"
                     android:textStyle="bold"
                     app:cornerRadius="8dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="16dp"
-                    android:text="Belum punya akun? Daftar"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="11sp" />
 
             </LinearLayout>
         </LinearLayout>
