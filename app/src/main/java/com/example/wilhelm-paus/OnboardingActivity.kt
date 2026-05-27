@@ -3,6 +3,7 @@ package com.example.wilhelm_paus
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.example.wilhelm_paus.FormLogin.LoginMainActivity
@@ -46,11 +47,17 @@ class OnboardingActivity : AppCompatActivity() {
                 super.onPageSelected(position)
                 if (position == items.size - 1) {
                     binding.btnNext.text = "Ayo Mulai"
+                    binding.tvSkip.visibility = View.GONE
                 } else {
                     binding.btnNext.text = "Lanjut"
+                    binding.tvSkip.visibility = View.VISIBLE
                 }
             }
         })
+
+        binding.tvSkip.setOnClickListener {
+            completeOnboarding()
+        }
 
         binding.btnNext.setOnClickListener {
             if (binding.viewPager.currentItem < items.size - 1) {

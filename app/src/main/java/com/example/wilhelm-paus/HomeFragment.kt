@@ -56,24 +56,20 @@ class HomeFragment : Fragment() {
             loadCatFact()
         }
 
-        // Menu 1: Kalkulator
         binding.cardRumus.setOnClickListener {
             startActivity(Intent(requireContext(), KalkulatorActivity::class.java))
         }
 
-        // Menu 2: Hasil Login
         binding.cardCustom1.setOnClickListener {
             val intent = Intent(requireContext(), LoginResultActivity::class.java)
             intent.putExtra("NAMA_USER", namaUser)
             startActivity(intent)
         }
 
-        // Menu 3: Web View
         binding.cardWebView.setOnClickListener {
             startActivity(Intent(requireContext(), WebViewActivity::class.java))
         }
 
-        // Menu 4: Logout
         binding.cardLogout.setOnClickListener {
             MaterialAlertDialogBuilder(requireActivity())
                 .setTitle("Konfirmasi Keluar")
@@ -92,26 +88,10 @@ class HomeFragment : Fragment() {
 
     private fun setupGallery() {
         val galleryItems = listOf(
-            OnboardingItem(
-                R.drawable.background,
-                "Kegiatan Desa",
-                "Gotong royong membangun infrastruktur desa yang lebih baik."
-            ),
-            OnboardingItem(
-                R.drawable.gambar,
-                "Penyuluhan",
-                "Edukasi masyarakat mengenai pentingnya teknologi di era digital."
-            ),
-            OnboardingItem(
-                R.drawable.eemgtg,
-                "Bantuan Sosial",
-                "Distribusi bantuan tepat sasaran untuk warga yang membutuhkan."
-            ),
-            OnboardingItem(
-                R.drawable.logobansos,
-                "Sistem Terpadu",
-                "Akses informasi bantuan sosial dalam satu aplikasi."
-            )
+            OnboardingItem(R.drawable.background, "Kegiatan Desa", "Gotong royong membangun infrastruktur."),
+            OnboardingItem(R.drawable.gambar, "Penyuluhan", "Edukasi masyarakat era digital."),
+            OnboardingItem(R.drawable.eemgtg, "Bantuan Sosial", "Distribusi bantuan tepat sasaran."),
+            OnboardingItem(R.drawable.logobansos, "Sistem Terpadu", "Akses informasi satu aplikasi.")
         )
 
         val galleryAdapter = GalleryAdapter(galleryItems)
@@ -146,21 +126,13 @@ class HomeFragment : Fragment() {
             override fun onResponse(call: Call<NewsResponse>, response: Response<NewsResponse>) {
                 if (response.isSuccessful) {
                     val newsList = response.body()?.data?.posts ?: listOf()
-                    
                     if (newsList.isNotEmpty()) {
                         val headline = newsList[0]
                         binding.cardHeadline.visibility = View.VISIBLE
                         binding.tvHeadlineTitle.text = headline.title
-                        Glide.with(this@HomeFragment)
-                            .load(headline.thumbnail)
-                            .into(binding.imgHeadline)
-                        
+                        Glide.with(this@HomeFragment).load(headline.thumbnail).into(binding.imgHeadline)
                         newsAdapter.updateData(newsList.drop(1))
-                    } else {
-                        newsAdapter.updateData(listOf())
                     }
-                } else {
-                    Toast.makeText(context, "Gagal memuat berita", Toast.LENGTH_SHORT).show()
                 }
             }
 
