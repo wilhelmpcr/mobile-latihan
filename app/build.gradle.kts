@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.google.devtools.ksp)
 }
 
 android {
@@ -46,18 +47,22 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.viewpager2)
-    implementation(libs.androidx.swiperefreshlayout)
     
-    // Retrofit & Coroutines
+    // Lifecycle & KTX
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    
+    // Retrofit & Glide
     implementation(libs.retrofit)
     implementation(libs.retrofit.gson)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.kotlinx.coroutines.android)
-    
     implementation(libs.glide)
+    implementation(libs.dotsindicator)
+
+    // Room Database
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    ksp(libs.androidx.room.compiler)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    implementation("com.tbuonomo:dotsindicator:5.1.0")
 }

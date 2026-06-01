@@ -5,6 +5,10 @@
         android:icon="@android:drawable/ic_menu_today"
         android:title="Home" />
     <item
+        android:id="@+id/nav_notes"
+        android:icon="@android:drawable/ic_menu_edit"
+        android:title="Catatan" />
+    <item
         android:id="@+id/nav_about"
         android:icon="@android:drawable/ic_menu_info_details"
         android:title="Tentang" />

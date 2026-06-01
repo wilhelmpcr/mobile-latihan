@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.wilhelm_paus.databinding.ActivityMainBinding
+import com.example.wilhelm_paus.note.NotesFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,6 +28,7 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_home -> replaceFragment(HomeFragment())
+                R.id.nav_notes -> replaceFragment(NotesFragment())
                 R.id.nav_about -> replaceFragment(AboutFragment())
                 R.id.nav_settings -> replaceFragment(SettingsFragment())
                 R.id.nav_profile -> replaceFragment(ProfileFragment())

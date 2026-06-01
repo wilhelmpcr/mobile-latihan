@@ -29,6 +29,7 @@
         <activity android:name=".WebViewActivity" />
         <activity android:name=".FormLogin.LoginResultActivity" />
         <activity android:name=".FormLogin.LoginMainActivity" />
+        <activity android:name=".note.NoteFormActivity" />
 
     </application>
 

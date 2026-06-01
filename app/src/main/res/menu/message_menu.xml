@@ -8,6 +8,6 @@
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_settings"
-        android:title="Pengaturan Pesan"
+        android:title="Pengaturan"
         app:showAsAction="never" />
 </menu>
