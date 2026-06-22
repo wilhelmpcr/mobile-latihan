@@ -70,6 +70,11 @@ class HomeFragment : Fragment() {
             startActivity(Intent(requireContext(), WebViewActivity::class.java))
         }
 
+        // MENU BARU: Buka Halaman Test Notifikasi & Reminder (Pertemuan 14)
+        binding.cardNotification.setOnClickListener {
+            startActivity(Intent(requireContext(), ThirdActivity::class.java))
+        }
+
         binding.cardLogout.setOnClickListener {
             MaterialAlertDialogBuilder(requireActivity())
                 .setTitle("Konfirmasi Keluar")

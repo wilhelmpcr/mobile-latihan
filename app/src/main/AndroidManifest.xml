@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -30,6 +34,16 @@
         <activity android:name=".FormLogin.LoginResultActivity" />
         <activity android:name=".FormLogin.LoginMainActivity" />
         <activity android:name=".note.NoteFormActivity" />
+
+        <!-- Tambahkan ini: Halaman Test Drive Pertemuan 14 -->
+        <activity android:name=".ThirdActivity" />
+        <activity android:name=".ThirdResultActivity" />
+
+        <!-- Receiver untuk Reminder -->
+        <receiver
+            android:name=".utils.ReminderReceiver"
+            android:enabled="true"
+            android:exported="false" />
 
     </application>
 

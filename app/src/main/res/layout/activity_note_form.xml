@@ -14,7 +14,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="Note Form"
+        app:title="Form Kegiatan Desa"
         app:titleTextColor="@android:color/white" />
 
     <com.google.android.material.card.MaterialCardView
@@ -38,7 +38,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Title">
+                android:hint="Nama Kegiatan">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etTitle"
@@ -49,7 +49,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Content"
+                android:hint="Detail Kegiatan"
                 android:layout_marginTop="12dp">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -61,6 +61,22 @@
                     android:inputType="textMultiLine"/>
             </com.google.android.material.textfield.TextInputLayout>
 
+            <!-- Input Reminder (Menit) -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ingatkan saya dalam (menit)"
+                android:layout_marginTop="12dp"
+                app:helperText="Isi 0 jika tidak ingin diingatkan">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etReminderMinutes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:text="0"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
@@ -69,7 +85,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="Save"
+        android:text="Simpan Kegiatan"
         app:layout_constraintTop_toBottomOf="@id/cardForm"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

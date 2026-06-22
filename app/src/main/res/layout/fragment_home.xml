@@ -109,7 +109,7 @@
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Grid Menu -->
+        <!-- Grid Menu (Ditambah menu Notifikasi) -->
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -132,7 +132,7 @@
                     android:gravity="center"
                     android:orientation="vertical">
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="📐" android:textSize="32sp" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Kalkulator" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="@color/text_main" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Kalkulator" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="@color/text_main"/>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -152,7 +152,7 @@
                     android:gravity="center"
                     android:orientation="vertical">
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="📄" android:textSize="32sp" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Hasil Login" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="@color/text_main" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Hasil Login" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="@color/text_main"/>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -172,7 +172,28 @@
                     android:gravity="center"
                     android:orientation="vertical">
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🌐" android:textSize="32sp" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Web View" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="@color/text_main" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Web View" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="@color/text_main"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- MENU BARU: TEST NOTIFIKASI -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardNotification"
+                android:layout_width="0dp"
+                android:layout_height="140dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                android:clickable="true"
+                android:focusable="true">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🔔" android:textSize="32sp" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Notifikasi" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="@color/text_main"/>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -192,7 +213,7 @@
                     android:gravity="center"
                     android:orientation="vertical">
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🚪" android:textSize="32sp" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Keluar" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="#D32F2F" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Keluar" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="#D32F2F"/>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
         </GridLayout>
@@ -209,7 +230,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginBottom="8dp"/>
 
-        <!-- NEW: Horizontal Gallery -->
+        <!-- Horizontal Gallery -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvGallery"
             android:layout_width="match_parent"
